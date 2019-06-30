@@ -1,0 +1,103 @@
+<html>
+  <head>
+    <title>Create new elements and attributes</title>
+    <style>
+      .alpha {
+        font-size: 20px;
+        color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="formTitle">User Registration Form</div>
+    <form id="registration_form">
+      Name <input type="text" name="first_name" id="first_name" /> <br /><br />
+      City
+      <select name="city" id="city">
+        <option value="1">Lahore</option>
+        <option value="2">Karachi</option>
+        <option value="3">Islamabad</option>
+      </select>
+      <input type="submit" />      
+    </form>
+
+    <br />
+    
+    <a href="#" onclick="createNewElement()"> Create New Element</a> <br /><br />
+
+    <a href="#" onclick="insertBeforeDemo()"> Insert Before Demo</a> <br /><br />
+
+    <a href="#" onclick="addAttributes()"> Add New Attribute</a> <br /><br />
+
+    <a href="#" onclick="addNewOption()">Add New Option</a> <br /><br />
+
+  </body>
+
+  <script>
+    function createNewElement() {
+      //lets first create the element
+      let newDiv = document.createElement("div");
+
+      // we can create elements or just text node and add as child of newly created element
+      let textNode = document.createTextNode("New Node Text");
+      newDiv.appendChild(textNode);
+
+      // by now, its not added into DOM, lets add into DOM
+      // first we choose the location, where we want to add the element      
+      var formTitle = document.getElementById("formTitle");      
+      formTitle.appendChild(newDiv);      
+      // appendChild method, add a new child at end, into existing list of childrens
+      
+    }
+    
+    function insertBeforeDemo(){
+      console.log('insert after demo called.');
+      /*
+      to insert an element after another elements, we need three things:
+        1. the parent element      
+        2. new element
+        3. reference element - after which the new element shall be added        
+
+      lets consider, how we can add new element after the option list
+      */
+
+      let parentElement = document.getElementById('registration_form');
+
+      let newElement = document.createElement('div');      
+      newElement.appendChild(document.createTextNode('Sample Text Here'));            
+
+      let referenceElement = document.getElementById('city');
+      parentElement.insertBefore(newElement, referenceElement);
+    }
+    
+
+    /* We can add attributes to elements on the fly. */
+    
+    function addAttributes() {
+      let formTitle = document.getElementById("formTitle");
+
+      // There are two ways to add attribute to elements
+
+      // 1. Use setAttribute method and pass the attribute name and value      
+      formTitle.setAttribute("class", "alpha");
+
+
+      // 2. Create attribute node and assign to existing element
+      let titleAttribute = document.createAttribute("title");
+      titleAttribute.value = "Its title attribute value";
+      formTitle.setAttributeNode(titleAttribute);
+    }
+
+
+    function addNewOption() {
+      let newOption = document.createElement("option");
+      newOption.value = "4";
+      newOption.text = "Multan";
+
+      let cityField = document.getElementById("city");
+      cityField.add(newOption);      
+    }
+    
+  </script>
+</html>

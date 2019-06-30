@@ -1,0 +1,99 @@
+<html>
+  <head>
+    <title>
+      HTML Objects Understand well to manipulate HTML components using
+      JavaScript
+    </title>
+    <style>
+      .alpha {
+        font-size: 20px;
+        color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="formTitle">User Registration Form</div>
+    <div id="af" class="beta">Afghanistan</div>
+
+    <form id="registration_form">
+      Name <input type="text" name="first_name" id="first_name" /> <br />
+      <br />
+
+      City
+      <select name="city" id="city">
+        <option value="1">Lahore</option>
+        <option value="2">Karachi</option>
+        <option value="3">Islamabad</option>
+      </select>
+
+      <input type="submit" />
+
+      <div id="pk" class="beta">Pakistan</div>
+      <div id="cn" class="beta">China</div>
+    </form>
+
+    <br />
+    <button onclick="domSelectors()">DOM Selector Demo</button>
+  </body>
+
+  <script>
+    function domSelectors() {
+      /*
+    here is the flow of how we usually do thing in JS:
+    We get one or more elements from DOM using selector methods
+    get element by id
+    get elements by tag name
+    get elements by class name
+    get elements by CSS selectors
+    */
+      var city = document.getElementById("pk");
+      console.log(city.textContent);
+
+      var allDivs = document.getElementsByTagName("div"); // returns HTMLCollection
+      console.log('Total Divs : ', allDivs.length);
+      for (let oneDiv of allDivs) {
+        console.log(oneDiv.id, oneDiv.textContent);
+      }
+
+      /*
+      allDivs seems an array, but actually, its not an array.
+      we can iterate it like array and can fetch specific element using [index].
+      but we can't use valueOf(), pop(), push(), or join() methods 
+      */
+
+      allDivs = document.getElementsByClassName("beta");
+      for (let oneDiv of allDivs) {
+        console.log(oneDiv.id, oneDiv.textContent);
+      }
+
+      // We can use CSS selectors too
+      console.log("CSS selector DEMO.");
+      let country = document.querySelector("#af");
+      console.log(country.textContent);
+
+      // We can select multiple elements using CSS query
+      console.log("Selecting multiple documents using CSS selector.");
+      let countries = document.querySelectorAll("form div.beta");
+      for (let country of countries) {
+        console.log(country.textContent);
+      }
+
+      /* some commom objects and object collections are directly accessible
+    document.anchors
+    document.body
+    document.documentElement
+    document.embeds
+    document.forms
+    document.head
+    document.images
+    document.links
+    document.scripts
+    document.title
+    */
+      console.log(document.forms[0].action);
+      console.log(document.title);      
+    }
+        
+  </script>
+</html>

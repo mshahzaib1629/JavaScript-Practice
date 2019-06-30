@@ -1,0 +1,57 @@
+<script>
+/////////////////////////////////////////////////////
+// ----------------- boolean  -----------------------
+/////////////////////////////////////////////////////
+
+let isActive = true;
+isActive = new Boolean(false);
+
+// falsy: a value that is considered false, when encountered in boolean context
+// list of falsy values: false, 0, "", null, undefined, and NaN
+
+if (NaN) 
+  console.log("NaN is true");
+else 
+  console.log("NaN is false");
+
+// expressions involving truthy and falsy
+
+isActive = true || "CUI";
+console.log("value = " + isActive + "\nType = " + typeof isActive);
+
+
+//short circuit evaluation
+let defaultPriceList = "Standard Price List";
+let userPriceList = "Discounted Price List";
+let activePriceList = userPriceList || defaultPriceList;
+console.log(activePriceList);
+
+
+//  some examples
+if ("Pakistan") console.log("Pakistan");
+if ("Fish can swim " && "Fish can fly") 
+  console.log("Fish can swim and fly.");
+if ("Cat" * 3) console.log("Its NaN, so would not be printed");
+else console.log("NaN is false");
+
+
+//create boolean from from non-boolean
+let name = "Shahzad";
+isNameDefined = Boolean(name);
+if (isNameDefined) 
+ console.log("Name is defined");
+
+</script>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+</head>
+<body>
+    
+</body>
+</html>

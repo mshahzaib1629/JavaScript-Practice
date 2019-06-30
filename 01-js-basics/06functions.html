@@ -1,0 +1,68 @@
+<script>
+
+//////////////////////////////////////////////
+// --------------- functions -------------
+//////////////////////////////////////////////
+
+
+// basic function definition
+
+function sayHello(){
+  console.log('Hello');
+}
+
+
+// argument based
+function sayHello(name){
+  console.log('Hello ' + name);
+}
+
+
+// we can return something from function
+// no need to specify return type in function prototype
+
+function f3(){
+  return "somevalue";  
+}
+
+
+// function with default value of a parameter
+
+function calcSum(num1, num2 = 10) {
+  return num1 + num2;
+}
+
+
+let num4;
+console.log(calcSum(1, num4));
+
+
+
+//            -----------------------------
+
+
+//some built-in methods of Math class
+
+console.log(' Math class');
+randomNumber = Math.random();
+console.log('Random Number : ' + randomNumber);
+randomNumber = randomNumber * 10;           // 0 - 9
+console.log('Generated Random Number is : ' + Math.floor(randomNumber));
+console.log('Value of PI = ' + Math.PI);
+
+// There are a other functions e.g. ceil, cos, sin, tan, log, max, min, pow, random, round, sqrt, etc.
+
+</script>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    
+</body>
+</html>

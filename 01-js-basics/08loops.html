@@ -1,0 +1,64 @@
+<script>
+console.log("<h3> Loops </h3>");
+// nothing special, just like other languages
+// just conditional expression can be anything
+
+console.log("For loop : ");
+let sum = 0;
+for (let i = 1; i <= 10; i++) {
+  sum = sum + i;
+}
+
+console.log("Sum of first 10 natural numbers is : " + sum + " <br/>");
+console.log("While loop : ");
+
+let i = 10;
+while (i >= 1) {
+  console.log(" " + i);
+  i--;
+}
+
+console.log("<br/> Do-while loop ");
+do {
+  console.log(i + " ");
+  i++;
+} while (i <= 10);
+
+// for-in
+// used to iterate properties of an object 
+// when used for array, it iterates their indexes
+book = {
+  author: 'Zeeshan Usmani',
+  title : 'Jastaju ka safar',
+  year : 2015  
+};
+for(let key in book)
+  console.log(key, book[key]);
+
+
+computer_degrees = ['BSCS', 'BSSE', 'BSIT', 'BSCE'];
+// computer_degrees[5] = 'BSTECH';
+
+for(let index in computer_degrees) // iterate only 'defined' indexes
+  console.log(index, computer_degrees[index]);
+
+// for - of loop  
+// used to iterate elements of an array
+for(let degree of computer_degrees) // iterate all elements, would print undefined for 'missing' indexes
+  console.log(degree);
+          
+</script>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+</body>
+</html>

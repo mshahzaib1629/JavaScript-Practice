@@ -1,0 +1,100 @@
+<html>
+<head>
+    <title>JavaScript Intro</title>
+</head>
+
+<body>
+<h1> Event Driven Programming</h1>
+
+<!-- You can attach a JavaScript file name.js or add script directly inside a page -->
+<!-- example.js is javascript file, it can be attached with the page as follows: -->
+<!-- <script src="example.js" type="text/javascript"></script> -->
+
+<script>
+
+/*
+Using JavaScript, we mainly do 5 things:
+
+    1. Change current HTML elements'
+    2. Change CSS properties of HTML elements
+    3. Add new elements in current page
+    4. Interact with server
+    5. Implement custom logic e.g. validation, event handling, etc. 
+
+
+There are 4 things in event driven programming, that you must understand and differentiate:
+
+    1. Component - that fires the event e.g. button, link, text field, image, option list
+    2. Event     - e.g. click, double click, mouse over, etc.   
+    3. Handler   - the set of instructions that shall execute when the event triggers or fire
+    4. Binding   - the processing linking Handler with Event and Component
+
+    Its very important to understand, when we define handlers and do binding, the handler is 
+    not executed at that time. The handler execute when the event occur.
+
+    How the event is fired?
+        1. When user do something. For example, when user click on some component, the click evet fire.
+        2. We can fire the event programmatically too e.g. using Javascript.        
+*/
+
+    // Different type of pop-up boxes. We rarely use them in real project, but you should know them.
+
+    // alert("Just an alert Pop-up box");
+    // var isContinue = confirm("Do you want to continue? ");
+    // console.log("isContinue value = ", isContinue);
+
+    // var userName = prompt("Please input your name: ");
+    // console.log("User Name = ", userName);    
+
+</script>
+
+<style>input {margin-bottom: 20px; display: block} </style>
+
+writing the value of onclick property is binding. we are binding some JavaScript code to be executed
+when click event is fired. The value of on* functions is the 'Event Handler' must be valid JavaScript code.
+
+<input type="button" onclick="alert('sayHello button pressed');" value="Say Hello"/>
+
+<input type="button" onclick="eventHandler();" value="Call JavaScript Method"/>
+
+<input type="button" onclick="sayHelloByName('Ali');" value="We can pass arguments to event handlers"/>
+
+<input type="button" onclick="changeStyleAndContents();" value="Change Style and Color"/>
+
+<div style="background-color: #bb3902;color: white;font-size: 22px" id="widget1">
+    Here comes some text.
+</div>
+
+<script>
+
+    // Functions can be bound with events, see below. 
+    // this method is associated with onclick event
+
+    function eventHandler() {
+        alert("A button is pressed");
+        var n = 60;
+        console.log(n);
+    }
+        
+    function sayHelloByName(name) {
+        alert("Hello " + name);
+    }
+    
+    function getText() {
+        return 'Don\'t waste time thinking what you should do, \
+        you already know what you should be doing right now.';
+    }
+
+    // we can fetch elements and change their properties
+
+    function changeStyleAndContents() {        
+        var div1 = document.getElementById('widget1');
+        div1.style.color = "Yellow";
+
+        div1.style.backgroundColor = "BLACK";
+        div1.innerHTML = getText();
+    }
+</script>
+
+</body>
+</html>

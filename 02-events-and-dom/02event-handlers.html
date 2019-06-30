@@ -1,0 +1,44 @@
+<html>
+<head>
+    <script>
+        function changeWidth(width) {
+            var myImage = document.getElementById("risingSun");
+            myImage.width = width;
+        }
+
+        // Returns DOM object by ID, by reference
+        var risingSun = document.getElementById("risingSun");
+
+        // Fetch the attribute directly, or using getAttribute method
+        alert("Rising sun image title is : " + risingSun.title);
+        alert("Rising sun image title using method getAttribute() is : " + risingSun.getAttribute("title"));
+        // Id, width, height, src can be accessed same way
+        
+        // You can also fetch elements by other means e.g. by name, by class, etc.
+        alert(document.getElementsByName("risingSun")[0].id); // i.e. the 0th element in NodeList
+
+    </script>
+
+</head>
+
+<body>
+        
+Changing element attributes<br/>
+<input type="button" onclick="changeWidth(350)" name="Change" value="Change Image Width"/><br/>
+<img src="risingsun.png" id="risingSun" width="250" height="200" title="Rising Sun Image Title" name="risingSun"/>
+
+<br/> <br/>
+
+Using onmouseover and onmouseout events <br/>
+
+<img src="risingsunbnw.png"
+     onmouseover="this.src='risingsun.png'"
+     onmouseout="this.src='risingsunbnw.png'">
+
+<img src="risingsunbnw.png"
+     onmouseover="this.src='risingsun.png'"
+     onmouseout="this.src='risingsunbnw.png'">
+
+</body>
+
+</html>

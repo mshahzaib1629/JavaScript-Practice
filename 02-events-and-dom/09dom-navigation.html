@@ -1,0 +1,119 @@
+<html>
+  <head>
+    <title>
+      DOM navigation      
+    </title>    
+    </style>
+  </head>
+  <body>
+    <p>
+      We can navigate or move from one node to another. To its previous or next sibling.
+      To parent node, to child nodes. etc. This code sample explains, how we can do so.            
+    </p>
+
+    <div id='first'><div>a</div><div>b</div><div>c</div></div><div id='second'>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+    </div>
+
+    <a href='#' onclick="basicNavigation()">Basic Navigation</a> <br>
+    
+    <div id='third'>
+      <h4>Different type of HTML elements</h1>
+      <p>Brief description of HTML elements comes in this paragraph. </p>
+      <a href='#'>Click Here</a><br>
+      <img src='risingsun.png' width="100px"/>this is raw text
+      <!-- we can add comments in html -->
+    </div>
+
+    <br> <br>    
+
+    <a href='#' onclick="printNodeInfo()">Print Node Info.</a> <br>
+
+  </body>
+<script>
+/*
+Below is the list of very basic properties of a node in DOM,
+these properties gives access to different related nodes:
+
+  firstChild
+  lastChild
+
+  nextSibling
+  previousSibling
+
+  parentNode
+  childNodes
+
+*/
+
+  function basicNavigation(){
+    let first = document.getElementById('first');
+    let aNode = first.firstChild;
+    let cNode = first.lastChild;
+
+    console.log('printing first and last child of a node ... ');
+    console.log(aNode);
+    console.log(cNode);
+
+    console.log('printing nextSibling of \'a\' node');
+    console.log(aNode.nextSibling)    
+    console.log('printing previousSibling of "second" ');
+    let second = document.getElementById('second');
+    console.log(second.previousSibling);
+
+    console.log('printing parent of "second"');    
+    console.log(second.parentNode);
+
+    console.log('processing childNodes of "first"');
+    let childNodes = first.childNodes;
+    for(let childNode of childNodes){
+      console.log(childNode.textContent);
+    }
+  }
+  /*
+  Every node has 3 basic properties:
+  nodeName
+    HTML tag name in capital case for html elements
+    Attribute name, incase of attribute node    
+    #text ... if current node is text
+    #comment ... if current node is comment
+    #document -> if current node is document
+  nodeType    
+    ELEMENT_NODE	      1	
+    ATTRIBUTE_NODE	    2	
+    TEXT_NODE	          3	
+    COMMENT_NODE	      8	
+    DOCUMENT_NODE	      9
+    DOCUMENT_TYPE_NODE	10    
+  nodeValue
+    nodeValue for element nodes is null
+    nodeValue for text nodes is the text itself
+    nodeValue for attribute nodes is the attribute value
+  */
+
+  function printNodeInfo() {
+
+    console.log('traversing child nodes of third');
+    let third = document.getElementById('third');    
+    let childNodes = third.childNodes;
+
+    console.log('\nPrinting node name ');
+    for(let childNode of childNodes)
+      console.log('Node Name : ', childNode.nodeName);
+    console.log(document.nodeName);
+
+    console.log('\nPrinting node type ')        
+    for(let childNode of childNodes)
+      console.log('Node Type : ', childNode.nodeType);
+    console.log('Node Type : ', document.nodeType);
+
+    console.log('\nPrinting node value')        
+    for(let childNode of childNodes)
+      console.log('Node Value : ', childNode.nodeValue);    
+    console.log('Node Value : ', document.nodeValue);        
+  }
+    
+  </script>
+</html>

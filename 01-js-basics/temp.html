@@ -1,0 +1,53 @@
+<script>
+  book = {
+    title: "How to Program",
+    author: "Dietel",
+    year: 2000
+  };
+  console.log(book.title);
+  console.log(book.author);
+
+
+  // making more object is difficult this way.
+  // we can use factory methods
+  function createBook(title, author, year) {
+    return {
+      title: title,
+      author: author,
+      year: year
+    };
+  }
+  book1 = createBook("Speed of trust", "Stephen", 2010);
+  console.log(book1.year);
+
+  
+  // we can simplify above code
+  function createBook(title, author, year) {
+    return { title, author, year };
+  }
+  book2 = createBook("abc", "Alice", 2020);
+  console.log(book2.year);
+  
+
+  // lets create object using constructor functions
+  function Book(title, author, year){
+      this.title = title;
+      this.author = author;
+      this.year = year; 
+  }
+  book3 = new Book('7 Habits', 'Stephen', 1990);
+  console.log(book3.title);
+       
+
+</script>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body></body>
+</html>

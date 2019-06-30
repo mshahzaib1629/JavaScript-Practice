@@ -1,0 +1,124 @@
+<script>
+///////////////////////////////////////////////////
+//----------------- Objects -----------------------
+///////////////////////////////////////////////////
+
+// {} is object literal
+
+
+student = {
+  firstName: "Ali",
+  lastName: "Khan",
+  age: 40
+};
+
+console.log(student);
+console.log(typeof student);
+
+
+
+// we can add new properties on-the-fly in objects.
+student['email'] = 'ali@gmail.com';
+
+
+// Dot notation and bracket notation
+// can be used to read and update elements
+console.log(student.firstName);
+console.log(student["age"]);
+console.log(student.email);
+
+
+// what notation to use?
+// for static propertise, use . notation.
+// for dynamically defined properties, use bracket notation
+
+// we can add methods and composite properties, like below
+
+student = {
+  name : "Ali",
+  address : { // address is an object itself
+    streetAddress: "120 A Block",
+    town: "PCSIR Staff Society"
+  },  
+  calcCgpa: function() {
+    return "3.5";
+  }
+};
+
+console.log('Street Address : ' + student.address.streetAddress);
+console.log(student.calcCgpa());
+
+// to create multiple objects, we can create factory functions
+// it help to avoid code duplicatio, hence reduces the code size.
+
+function createStudentObject(name, streetAddress, town) {
+  return {
+    name : name,
+    address: {
+      streetAddress: streetAddress,
+      town: town
+    },
+    calcCgpa: function() {
+      return "3.8";
+    }
+  };
+}
+
+student1 = createStudentObject("Shahzad", "34 Block D", "Model Town");
+console.log(student1);
+console.log(student1.calcCgpa());
+
+
+// if the variable containing the field value matches with the 
+// field name, we can skip the value part. and can get same result. 
+// it makes code smaller and clean.
+
+function createStudentObj(name, streetAddress, town) {
+  return {
+    name, 
+    address: {
+      streetAddress,
+      town
+    },
+    calcCgpa() {
+      return 3;
+    }
+  };
+}
+
+let std2 = createStudentObj("Ali", "3 C", "Garden Town");
+console.log(std2);
+console.log(std2.calcCgpa());
+
+
+// another way to create object definition is by constructor function
+function Student(name, streetAddress, town){
+  this.name = name;
+  this.address = {streetAddress, town};
+
+  this.cgpa = function(){
+    return 3.4;
+  }
+}
+
+std2 = new Student('Shahzad', '40 D', 'Model Town');
+console.log(std2);
+console.log(std2.cgpa());
+console.log('Street Address  = ' + std2.address.streetAddress);
+
+// TDL: OOP Concepts in JS. Implementation, later
+
+</script>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+</head>
+<body>    
+</body>
+</html>

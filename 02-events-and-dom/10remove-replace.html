@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>
+      Remove node and replace node with another      
+    </title>    
+    </style>
+  </head>
+  <body>
+    <div id='first'>
+      <p id='p1'>Some text 1</p>
+      <p id='p2'>Some text 2</p>
+    </div>
+    <a href='#' onclick="removeElement()">Remove Element</a>
+    <a href='#' onclick="replaceElement()">Replace Element</a>    
+  </body>  
+
+<script>
+  function removeElement(){
+    let parent = document.getElementById('first');
+    let p1 = document.getElementById('p1');
+    if(p1) 
+      parent.removeChild(p1);
+  }
+
+  function replaceElement(){
+    // lets replace p1 paragraph with some div
+    let parent = document.getElementById('first');
+    let p1 = document.getElementById('p1');
+
+    let div1 = document.createElement('div');
+    div1.appendChild(document.createTextNode('Sample Text for Div'));
+    div1.setAttribute('id', 'div1');
+
+    p1.replaceWith(div1);
+    //or parent.replaceChild(div1, p1);
+    
+    
+            
+  }
+  </script>
+</html>

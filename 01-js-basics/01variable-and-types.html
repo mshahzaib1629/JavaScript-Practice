@@ -1,0 +1,100 @@
+<script>
+
+let age;
+console.log('Value = ' + age);
+
+// Its type is also undefined, so 'undefined' is a type in JavaScript
+console.log( 'Type = ' + typeof(age) + "\n");
+
+// When you initialize a variable, its type is determined by value, automatically
+age = 20;
+
+console.log('Type=' + typeof(age) + ' \nValue is : ' + age);
+
+/* 
+Naming variables, some important points/rules
+    1. Use meaningful names. Avoid using a, b, x, etc. for variable names
+    2. Do not start with number
+    3. Do not use space or -
+    4. Use camel notation for multiword names e.g. firstName. not first_name or first-name
+    5. Do not use reserve words e.g. if, else, var, let, function etc.
+    6. Variable names are case sensitive in JS
+*/
+
+/* Constants
+Use const keyword before declaring and initializing the variable
+You can't change the value of constant, it would generate an error
+*/
+
+const universityName = "CUI";
+universityName = "CIIT";
+console.log(universityName);
+
+
+/* There are two types of variables
+    1. Primitive types - already defined. basic types.
+    2. Reference types - we can define our own too
+
+List of primitive types
+    1. string
+    2. number
+    3. boolean
+    4. undefined
+    5. null
+
+Reference types
+    1. objects
+    2. functions
+
+Concept of Literal - specifying value in code of some variable */
+
+// Variables can be declared in JS using 'let' keyword
+// We can initlize the variables at the time of declaration or later
+// Using a non initialized variable, would print 'undefined' as value
+
+let name = "Asif Shahzad";
+let email = 'asifsh7@gmail.com';
+
+let age = 20;
+let height = 5.9;
+let isGraduate = true;
+let universityName;
+let cityName = null;
+let schoolName = undefined;
+
+// In above code, "Asif Shahzad", 20, true, and null are string literal, number literals ..
+// 'undefined' can also be used as literal, but we rarely do so
+// In JS, there is no separate type for floating point numbers
+// we can print values and types, as shown below
+
+console.log(name);
+console.log(age);
+console.log(height);
+console.log(isGraduate);
+console.log(universityName);
+console.log(cityName);
+
+console.log(typeof name);
+console.log(typeof age);
+console.log(typeof height);
+console.log(typeof isGraduate);
+console.log(typeof universityName);
+console.log( typeof cityName);
+
+// notice, 'undefined' is also a value and type
+// you can change the type of a variable by assigning some other value
+// concept of: static-type and dynamic-type languages
+
+</script>
+
+!<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+</head>
+<body>    
+</body>
+</html>

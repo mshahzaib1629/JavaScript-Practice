@@ -1,0 +1,209 @@
+<html>
+  <head>
+    <title>
+      HTML Objects Understand well to manipulate HTML components using Java
+      Script
+    </title>
+  </head>
+
+  <!-- 
+  we often need to manipulate forms using Java Script. Its important to understand 
+  how we can read current form field values and how we can update / set them. 
+  multiple methods to do same task are implemented, do not focus on particular method
+  but on overall sense how the things are working. only then, you would be able to
+  handle complex cases or given project requirements. do not cram thing, understand.  
+  -->
+
+  <body>
+
+    <form id="registration_form">
+      Name <input type="text" name="first_name" id="first_name" /> <br />
+      Email <input type="text" name="email" id="email" /> <br />
+
+      Gender
+      <input type="radio" name="gender" value="Male" id="radioMale" />Male
+      <input type="radio" name="gender" value="Female" id="radioFemale" />Female
+      <br> <br>
+
+      Select Courses <br>
+      <input type="checkbox" name='oop' id='oop' value="Object Oriented Programming"/> Object Oriented Programming <br>
+      <input type="checkbox" name='db' id='db' value="Database"/> Database <br>
+      <input type="checkbox" name='web' id='web' value="Web Technologies"/> Web Technologies <br> <br> 
+
+      Suitable Time (You may choose multiple) <br>
+      <input type="checkbox" name='suitable-time' value='10:00 AM'/> 10:00 AM <br>
+      <input type="checkbox" name='suitable-time' value="3:00 PM"/> 3:00 PM <br>
+      <input type="checkbox" name='suitable-time' value="7:00 PM"/> 7:00 PM <br> <br>
+            
+      City
+      <select name="city" id="city">
+        <option value="1">Lahore</option>
+        <option value="2">Karachi</option>
+        <option value="3" selected>Islamabad</option>
+      </select>
+
+      <input type="submit" onclick="return handleSubmit()" />
+      <input type="reset" />
+    </form>
+
+    <a href="#" onclick="showCurrentValues();">Show Current Values</a> <br > <br>
+    <a href="#" onclick="updateFormFields();">Update Form Values</a> <br > <br>
+    <a href="#" onclick="showFormAttributes();">Show Form Attributes</a> <br > <br>
+
+  </body>
+
+  <script>
+
+    function showCurrentValues(){
+      
+        // ------------------- Text Field
+
+
+        // reading current value of text input field
+        let nameField = document.getElementById('first_name')
+        console.log('First Name = ', nameField.value);
+        console.log('Email = ' , document.getElementById('email').value);
+
+
+        // ------------------- Radio Button 
+        
+
+        // reading current value of radio button - using attribute selector
+        console.log('\n');
+        let gender = document.querySelector('input[name="gender"]:checked');                
+        if (gender != null)
+            console.log("Gender = " + gender.value);
+        else
+            console.log('No value for gender is selected.');
+
+        // reading current value of radio button - using 'checked' attribute
+        let radioMale = document.getElementById('radioMale');
+        let radioFemale = document.getElementById('radioFemale');
+        
+        if(radioMale.checked)
+          console.log('Gender = Male');
+        else if(radioFemale.checked)
+          console.log('Gender = Female');
+        else
+          console.log('No value for gender is selected');          
+
+
+        // ------------------------   Checkbox
+
+        
+        // reading values of checkboxes, there are multiple ways
+        // all revolves around 'checked' property
+        let oop = document.getElementById('oop');
+        let message = oop.checked ? 'OOP is selected' : 'OOP is not selected'
+        console.log('\n' + message );
+
+        // with above approach, we have to check all elements. its code intensive approach
+        // we can use attribute selector to select active elements only        
+        let suitableTimes = document.querySelectorAll('input[name="suitable-time"]:checked');
+        console.log('\nMethod 2 of checkbox processing');
+        if(suitableTimes.length === 0)
+            console.log('no suitable time choosen');
+        for(let suitableTime of suitableTimes) 
+          console.log(suitableTime.value);                
+
+        // we can select by name and filter 'active' checkboxes
+        console.log('\nMethod 3 of checkbox processing');
+        suitableTimes = document.getElementsByName('suitable-time');
+        for(let suitableTime of suitableTimes)
+            if(suitableTime.checked)
+                console.log(suitableTime.value);                                
+
+
+        // ------------------- Option List
+
+
+        // reading current index and value of option list
+        let cityField = document.getElementById('city');
+        console.log("\nNumber of options = ", cityField.length);
+        console.log("Current Value = ", cityField.value);
+        console.log("Current Index = ", cityField.selectedIndex);
+
+        // we can read the text at selected index
+        let currentCityText =  cityField.options[cityField.selectedIndex].text
+        console.log('Current city text = ', currentCityText);
+
+        // we can submit form, using in JS
+        var regForm = document.getElementById("registration_form");
+        // regForm.submit();
+        // console.log('form submitted ... ');
+    }
+
+    function handleSubmit(){
+      console.log('submit button clicked');
+      console.log('Do data validation and other tasks that must be done before submitting the form.');
+      console.log('To submit form, return true. ');
+      console.log('To stop submisssion, return false from submit button handler');
+      return false;      
+    }    
+        
+    function updateFormFields() {
+
+        // lets clear the form, as it may contains some data        
+        let regForm = document.getElementById("registration_form");
+        regForm.reset();
+
+        // lets create an object
+        // assume this object is received from server
+        // we will populate the form based on data received i.e. user object
+                
+        let user = {
+            firstName : 'Asif',
+            email : 'asifsh7@gmail.com',    
+            gender : 'Male',
+            courses : ['db', 'web'],
+            suitableTimes : ['10:00 AM','7:00 PM'],
+            city : 'Islamabad'
+        };
+
+
+        // update text and email etc.
+        document.getElementById('first_name').value = user.firstName;
+        document.getElementById('email').value = user.email;
+
+        // update radio buttons
+        if(user.gender == 'Male')
+            document.getElementById('radioMale').checked = true;
+        if(user.gender == 'Female')
+            document.getElementById('radioFemale').checked = true;
+
+
+        // update checkboxes     
+        // method 1 - handle each checkbox individually
+        if(user.courses.includes('db'))
+          document.getElementById('db').checked = true;
+          // do same for all other courses ... 
+
+        // method 2 - handle checkboxes using element ID and loop
+        for(let course of user.courses){
+          document.getElementById(course).checked = true;
+        }
+
+        // method 3 - handle checkboxes using names and value
+        let suitableTimes = document.getElementsByName('suitable-time');
+        for(let suitableTime of suitableTimes) {
+          if(user.suitableTimes.includes(suitableTime.value))
+            suitableTime.checked = true;
+        }
+
+        // update option list
+        for(let city of document.getElementById('city')){
+          if(city.text == user.city)
+            city.selected = true;
+        }
+    }
+        
+    function showFormAttributes() {
+      var regForm = document.getElementById("registration_form");
+
+      console.log('action = ', regForm.action);
+      console.log('method = ', regForm.method);
+      console.log('encoding type = ', regForm.enctype);                  
+    }    
+
+  </script>
+</html>

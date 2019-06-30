@@ -1,0 +1,91 @@
+<script>
+console.log("// ----------------- Strings ----------------------");
+console.log("///////////////////////////////////////////////////");
+
+// 1. declaration and assignment
+// 2. string literals. defining single line and multi-line string literals
+// 3. functions: length, toLowerCase, toUpperCase, substring, trim, concat, indexOf, lastIndexOf, charAt
+// 4. using string as array - for reading. since ES5
+// 5. comparing strings
+// 6. primitive string and String object. How to create each? use typeof to see, what is difference. what to prefer.
+// 7. auto-boxing: Automatic conversion of primitive to String object depending on context
+// 8. primitive is pointer to a row memory location i.e. fast speed/random-access
+// 9. they are not same e.g. eval method takes expression in primitive string
+// 10. use instance and typeof to check each case
+// 11. converting one form to another. e.g. new keyword and valueof method
+
+lastName = "Shahzad";
+console.log(lastName);
+console.log(typeof lastName);
+console.log(lastName.length);
+console.log("Trimmed ..." + lastName.trim());
+console.log(lastName.concat("Ali"));
+console.log(lastName.indexOf("h"));
+console.log(lastName.lastIndexOf("a"));
+console.log("Length = " + lastName.length);
+console.log("Last Name " + lastName);
+console.log("charAt 1 = " + lastName.charAt(1));
+
+// multiline string literals
+let description = "data can be placed here \
+and other can be written in next row \
+in same wa";
+
+// Using string as array (since ES 5). for reading
+console.log(lastName[1]);
+
+// Comparing string
+let name1 = 'a';
+let name2 = 'b';
+
+if (name1 < name2) 
+  console.log(name1 + " is less than" + name2);
+else 
+  console.log(name1 + " is greater or equal " + name2);
+
+// if one operand is primitive, other would be unboxed too before comparison
+if(name1 == name2)
+  console.log('== equal');
+else 
+  console.log('== not equal');
+
+if (name1.localeCompare(name2) == 0) 
+  console.log("equal");
+else 
+  console.log("not equal ... ");
+
+// string primitive and String object
+
+let degree1 = String("BSCS");
+let degree2 = new String("MSCS");
+console.log("type = " + typeof degree1);
+console.log("type = " + typeof degree2);
+console.log(degree1 + " and " + degree2); // implicit unboxing for degree2
+
+console.log(eval("2+2")); // eval works on primitive string
+console.log(eval(new String("2+2")));
+
+if (degree1 instanceof String) 
+  console.log("Its instance of string");
+else 
+  console.log("Its not an instance of string");
+
+// convert one form to another.
+// primitive to object
+
+let std1 = new String("Ali");
+// object to primitive
+let std2 = std1.valueOf();
+</script>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+</head>
+<body>    
+</body>
+</html>

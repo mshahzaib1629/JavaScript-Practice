@@ -1,0 +1,148 @@
+
+<script>
+
+// arrays are used to store multiple elements for convenient usage / processing
+// empty means, array with 0 elements
+
+// [] is array literal. so its used to define the array
+
+let webStudents = ["Khalid", "Abdullah"];
+
+//let webStudents = new Array("Khalid", "Abdullah");
+
+console.log('array data...');
+console.log(webStudents);
+console.log(webStudents[0]);
+
+
+// size of array is dynamic, you add elements, sizes increases automatically
+webStudents[2] = "Danish";
+console.log('added : Danish');
+console.log(webStudents);
+
+
+// index of arrays are dynamic. order not required
+webStudents[5] = 'Uzair';
+webStudents[8] = 'Aamir';
+
+
+// element type is dynamic, we can mix different types of elements
+webStudents[3] = 50;
+
+
+console.log(webStudents);
+console.log('array size = ' + webStudents.length);
+
+
+//arrays are object. so a reference types
+console.log('Type of array = ' + typeof webStudents );
+
+
+//               ------------------------
+
+
+// we can iterate indexes using for-in loop
+// it would iterate only valid index. and skip the missing indexes
+console.log('iterating indexes');
+for(let i in webStudents)
+    console.log(i);
+
+
+// we can fetch the value, using index, like below
+console.log('iterating indexes and reading value at each index.');
+for(let index in webStudents)
+    console.log(index, webStudents[index]);
+
+
+// if we are interesting to read only array elements 
+// (and not the indexes) we can use for-of loop
+// for-of loop iterate all the indexes, even the undefined ones
+
+console.log('using for-of loop to iterate array elements');
+for(let element of webStudents)
+    console.log(element);
+            
+
+for(let j=0; j < webStudents.length; j++){
+    console.log(webStudents[j]);
+}    
+
+console.log('end of iterating arrays. ');
+
+
+//               ------------------------
+
+
+// push and pop elements from array, so we can use array like stack
+console.log('we can use array like a stack using push and pop methods.')
+
+console.clear();
+elements = ['a', 'b'];
+console.log(elements);
+
+
+console.log('add c into array using push method');
+elements.push('c');
+console.log(elements);
+
+
+console.log('removed last element from array using pop');
+elements.pop();
+console.log(elements);
+
+console.log('we can use array like a queue'); 
+console.log('here are the elements before and after shift operation'); 
+elements.push('c');
+console.log(elements);
+e = elements.shift();
+
+
+console.log('shift method returns the elements removed i.e. ', e, '.. after removing: ');
+console.log(elements);
+
+
+console.log('we can add elements in start too. after adding f');
+elements.unshift('f');
+console.log(elements);
+
+
+//               ------------------------
+
+console.log('Split, Join, Reverse methods');
+var sentense = "The quick brown fox";
+console.log(sentense, ' - after split : ');
+var a = sentense.split(" ");
+console.log(a);
+var b = a.join(" ");
+console.log("re-joined : " + b);
+console.log('Reverse an array elements: : ' + sentense.split(" ").reverse());
+
+
+//               ------------------------
+
+elements.push('w');
+elements.sort();
+console.log(elements);
+
+console.log('to sort in descending order, use reverse on sorted array ');
+elements.reverse();
+console.log(elements);
+
+
+
+
+
+</script>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    
+</body>
+</html>

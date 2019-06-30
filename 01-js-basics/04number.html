@@ -1,0 +1,136 @@
+<script>
+////////////////////////////////////////////////////
+// ----------------- number ------------------------
+////////////////////////////////////////////////////
+
+// there are no separate types for integers and floating points numbers in JS
+// only one type for both is used i.e. 'number'
+// when you assign some variable or constant a number, its type become number
+
+let num1 = 10;
+console.log('value of num1 = ' + num1);
+console.log('typoe of num1 = ' + typeof num1);
+
+// though above used syntax is more common, but we can create
+// a number type variable using Number function too. like below:
+// below syntax is useful when you want to create 'number' variable
+// from string or others. we can pass that to Number function.
+
+let num2 = Number(20);
+console.log('num2 = ' +  num2);
+
+// we can call this method passing string and other types too
+// in case of other types, its string equivalent would be used
+// to create number.
+
+num2 = Number("30");
+console.log('now value of num2 = ' + num2);
+
+
+// like string, primitive type 'number' has also a corresponding 
+// wrapper reference type i.e. 'Number'
+// we can create a Number object calling the Number constructor
+// using new operator
+
+let num3 = new Number(40);
+
+// as its not created by simple assignment or Number function
+// now its type of object. Lets print
+
+console.log('typoe of num3 = ' + typeof num3);
+
+// in arithmetic expressions, the object is implicitly 
+// converted to primitive type. like below:
+
+console.log('result = ' + (num3 + 5));
+
+
+// when comparing numbers, you must be clear about:
+// do you want to compare value only or type also
+// the type of both operands
+
+// below I have compared using == operator
+// num1 is 10, at this moment
+
+if (num1 == "10") 
+  console.log("equal"); // equal be printed    
+else 
+  console.log("not equal");
+
+// you see, one of the operant was string type, but it still generated true
+// using == operator, the non numeric types are implicitly converted to number 
+// and then comparison is performed. if you want to compare the value and type 
+// both, use === operator, like below
+
+if (num1 === "10")
+  console.log("equal"); 
+else 
+  console.log("not equal"); // no equal would be printed, though value is same but type is different
+
+
+// if one operand in comparison expression is primitive number 
+// and other is Number object. the object would be implicitly converted to 
+// primitive number ... called unboxing
+
+// comparing referece types
+num6 = new Number(10);
+num7 = 10;
+
+if (num6 == num7) 
+  console.log("objects are equal"); // this would be printed
+else 
+  console.log("objects are not equal");
+
+
+// when both operands are objects, JS engine compares their 
+// references, as they are reference types. and not the value
+// so, though the num6 and num7 both are assigned the same valye
+// i.e. 10 but because they are different objects in memory. 
+// so when comparing their references, it would generate false
+
+num7 = new Number(10);
+if (num6 == num7) 
+  console.log("objects are equal"); 
+else 
+  console.log("objects are not equal"); // this would be printed
+
+
+// for such cases you can explicitly convert one or both operands to 
+// primitive types, like below:
+
+if (num6 == num7.valueOf())
+  console.log("now its equal");   // this would be printed
+else 
+  console.log("its not equal");
+
+
+// if in some function you got an argument, and for some reason you need to check the type
+// you can use instanceof operator
+
+if (num3 instanceof Number) 
+  console.log("num3 of Number object. not a primitive number");
+else 
+  console.log("num3 is not a Number object");
+  
+
+// when we apply instanceof operator on primitive, it generates false
+
+if (num1 instanceof Number)
+  console.log("num1 of Number object. not primitive number");
+else 
+  console.log("num1 is not Number object");
+  
+  
+</script>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+</head>
+<body>    
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!-- Introduction to objects exposed by web browser -->
+
+<html>
+<head>
+</head>
+
+<body>
+
+<h1>Browser Objects -> window, navigator, screen <br/>
+    window -> document, history, location </h1>
+
+<p> We would see very brief info about each. Read good enough details from w3schools.com</p>
+
+<h3> Navigator object contains info about browser. </h3>
+<script>
+    document.write("Browser Name: : " + navigator.appName + "<br/>");
+    document.write("Browser Version : " + navigator.appVersion + "<br/>");
+    document.write("Browser Code Name : " + navigator.appCodeName + "<br/>");
+    document.write("userAgent : " + navigator.userAgent + "<br/> <br/>");
+    document.write("Java Enabled : " + navigator.javaEnabled() + "<br/>");
+    document.write("Cookies Enabled : " + navigator.cookieEnabled + "<br/>");
+</script>
+
+<h3> Screen object contains info about user screen </h3>
+<script>
+    document.write("Screen Height : " + screen.height + "<br/>");
+    document.write("Screen Width : " + screen.width + "<br/>");
+    document.write("Screen Pixel Depth : " + screen.pixelDepth + "<br/>");
+    document.write("Screen Color Depth : " + screen.colorDepth + "<br/>");
+    document.write("Screen Available Height : " + screen.availHeight + "<br/>");
+    document.write("Screen Available Width : " + screen.availWidth + "<br/>");
+</script>
+
+<h3>History object contains info about browser history</h3>
+<script> document.write("History length is : " + window.history.length + " <br/>");</script>
+<input type="button" value="Go Back" onclick="window.history.back();"/> <br/>
+<input type="button" value="Go Back to x " onclick="window.history.go(-2); /* two step back */"/> <br/>
+
+<h3> Location object contains info or interact with URL </h3>
+<script>
+    document.write("hostname : " + window.location.hostname + "<br />");
+    document.write("href     : " + window.location.href + "<br />");
+    document.write("port     : " + ((window.location.port == '') ? "80" :
+            location.port) + "<br />");
+    document.write("protocol : " + window.location.protocol + "<br />");
+    document.write("query    : " + window.location.search + "<br />");
+    /* ?param-name=param-value ... */
+    document.write("path name: " + window.location.pathname + "<br />");
+    /* /bitspedia/js/js3.php */
+    document.write("anchor   : " + window.location.hash + "<br />");
+</script>
+
+<input type="button" onclick="window.location.reload();" value="Reload this page"/>
+<input type="button" onclick="window.location.assign('http://www.ciitlahore.edu.pk');" value="Load CIIT Website"/>
+<input type="button" onclick="window.location.replace('http://www.ciitlahore.edu.pk');"
+       value="Replace with CIIT Website"/>
+
+<h3>Window object points to current open window</h3>
+
+<p>Our code (variable, methods) ... becomes part of the Window object. Think of history, location, document object as
+    window attributes. </p>
+<script>
+    var myFrames = window.frames; // returns all frames, including iframes
+//    for (var frame in myFrames) {
+//        document.write(frame.name);
+//    }
+</script>
+</body>
+
+</html>

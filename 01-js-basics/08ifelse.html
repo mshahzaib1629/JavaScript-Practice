@@ -1,0 +1,84 @@
+<script>
+
+// If / else
+if ("") console.log("true");
+let marks = 100;
+if (marks > 90) console.log("<br/> Greater than 90 ");
+else if (marks > 70) console.log("<br/> Greate than 70 ");
+else console.log("<br/> Less than or equal than 70");
+
+console.log("<h3> boolean type </h3>");
+
+// A bit different from java. Analyse carefully
+var isRegistered = true;
+console.log(typeof isRegistered);
+
+
+// any value can be used a boolean
+// All values are true. except: 0, 0.0, NaN, "", and undefined, false
+
+console.log("<br/>");
+if (true) console.log("<br/> true");
+if ("Pakistan") console.log("<br/> Pakistan ");
+
+
+console.log("<br/>");
+if ("Fish can swim " && "Fish can fly")
+  console.log("<br/> Fish can swim and fly.");
+
+
+console.log("<br/>");
+if ("Cat" * 3)
+  // results into NaN, which is false
+  console.log("Cat can be multiplied by 3.");
+else console.log("Cat can't be multiplied by 3.");
+
+
+console.log("<br/>");
+if (5 - 5)
+  // results int 0, which is false
+  console.log("Five minus five ");
+else console.log("Five minus five is false.");
+
+
+console.log("<br/>");
+if ("") console.log("Empty string results as true");
+else console.log("Empty string results into false");
+
+
+console.log("<br/>");
+name = "Shahzad";
+isNameDefined = Boolean(name); // so can also cast a value into boolean
+if (isNameDefined) console.log("<br/> Name is defined");
+
+
+// ****************   Switch   ****************
+
+
+document.write("<h3> Switch statement </h3>");
+grade = "A";
+
+switch (grade) {
+  case "A":
+    document.write("<br/>You earned grade A");
+    break;
+  case "B":
+    document.write("<br/>You earned grade B");
+    break;
+  default:
+    document.write("<br/>You grade is less than B");
+}
+</script>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  
+</body>
+</html>
